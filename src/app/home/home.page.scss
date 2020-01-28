@@ -1,0 +1,43 @@
+ion-header {
+    backdrop-filter: blur(2px);
+}
+
+ion-toolbar {}
+
+ion-toolbar ion-title {}
+
+ion-toolbar ion-title ion-searchbar {
+    --background: rgba(0,0,0,0);
+    --color: #000000;
+}
+
+ion-content {
+    // --background: url("src/assets/blur-blurred-background-close-up-1915182.jpg") no-repeat center center / cover;
+    --background: rgba(34,54,64);
+    position: inherit;
+    // -webkit-filter: blur(10px);
+    // -moz-filter: blur(10px);
+    // -o-filter: blur(10px);
+    // -ms-filter: blur(10px);
+    // filter: blur(10px);
+    z-index: -1;
+    overflow: hidden;
+    // --background: rgba(0,0,0,0.1);
+}
+
+ion-content::before {
+    content: "";
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: relative;
+    --background: rgb(0,0,0,1);
+    box-shadow: inset 10px 10px 10px 10px rgba(0,0,0,1);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+ion-content ion-item {
+    z-index: 1;
+}

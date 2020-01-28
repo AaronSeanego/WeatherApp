@@ -1,0 +1,78 @@
+<!-- <ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+        <ion-searchbar></ion-searchbar>
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- <ion-searchbar color = "primary" 
+  style = "background: rgba(0, 0, 0, 0);
+  --border-radius: 10px;" [(ngModel)] = "search" style = "--border-radius: 5px;" (click) = "searchData()"></ion-searchbar> -->
+  <ion-item style = "margin-left: 10px;margin-right: 10px;
+  border-radius: 8px;margin-top: 10px;" lines = "none" color = "primary">
+    <ion-icon color = "light" name="search" style = "margin-right: 10px;"></ion-icon>
+    <ion-input placeholder="Search" style = "color: white;font-family: 'Darker Grotesque', sans-serif;" [(ngModel)] = "search"></ion-input>
+    <ion-icon id = "close" color = "light" name="close" style = "margin-left: 10px;" (click) = "ClearData()"></ion-icon>
+  </ion-item>
+
+  <div class="ion-padding">
+    <h2 style = "text-align: center;
+    font-family:'Rajdhani', sans-serif;
+    color:white;z-index: 2;">
+      {{info?.name}},{{info?.sys.country}}
+    </h2>
+    <div>
+      <nav style = "float: right;text-align: center;margin-right: 40px;">
+        <h2 style = "font-size: 45px;color: #ffffff;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          <ion-label>{{temp}}&#730;C</ion-label>
+        </h2>
+
+        <h4 style = "font-family: 'Montserrat',arial;color: white;font-size: 15px;">
+          <ion-label>{{min}}&#730;C / {{max}}&#730;C</ion-label>
+        </h4>
+      </nav>
+      <h1 style = "text-align: center;margin-left: 30px;">
+        <img src = "http://openweathermap.org/img/wn/01d@2x.png" alt = "clear" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'clear sky'"/>
+        <img src = "http://openweathermap.org/img/wn/02d@2x.png" alt = "few clouds" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'few clouds'"/>
+        <img src = "http://openweathermap.org/img/wn/03d@2x.png" alt = "scattered clouds" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'scattered clouds'"/>
+        <img src = "http://openweathermap.org/img/wn/04d@2x.png" alt = "broken clouds" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'broken clouds'"/>
+        <img src = "http://openweathermap.org/img/wn/09d@2x.png" alt = "shower rain" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'light intensity drizzle'"/>
+        <img src = "http://openweathermap.org/img/wn/10d@2x.png" alt = "rain" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'light rain'"/>
+        <img src = "http://openweathermap.org/img/wn/11d@2x.png" alt = "thunderstorm" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'thunderstorm with light rain'"/>
+        <img src = "http://openweathermap.org/img/wn/13d@2x.png" alt = "snow" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'light snow'"/>
+        <img src = "http://openweathermap.org/img/wn/50d@2x.png" alt = "mist" style = "width: 120px;height:120px;" *ngIf = "info?.weather[0].description == 'mist'"/>
+      </h1>
+    </div>
+
+    <h3 style = "text-align: center;
+    font-family:'Darker Grotesque', sans-serif;text-transform: uppercase;color: white;">
+      {{info?.weather[0].description}}
+    </h3>
+    <nav>
+      <h3 style = "font-size: 18px;color: white;">
+        <sup>WIND</sup> {{info?.wind.speed}}KMH
+      </h3>
+    </nav>
+
+      <ion-card color = "primary">
+          <ion-card-header>
+            <ion-card-subtitle style = "font-family:'Rajdhani', sans-serif;"><h3>STATUS</h3></ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <h2 style = "color: #ffffff;font-family:'Rajdhani', sans-serif;">
+              <ion-label>Pressure: <b>{{info?.main.pressure}}MB</b></ion-label>
+            </h2>
+            <br/>
+            <h2 style = "color: #ffffff;font-family:'Rajdhani', sans-serif;">
+                <ion-label>Humidity: <b>{{info?.main.humidity}}%</b></ion-label>
+            </h2>
+            <br/>
+          </ion-card-content>
+        </ion-card>
+        
+
+  </div>
+</ion-content>
